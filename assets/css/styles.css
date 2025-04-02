@@ -12,13 +12,12 @@ p {
     position: absolute; /* Faz o texto ficar por cima */
     z-index: 10; /* Garante que o texto fique acima do canvas */
     text-align: center;
-    font-size: 24px;
+    font-size: 2rem;
     font-weight: bold;
     width: 100%;
     top: 50%; /* Centraliza verticalmente */
     left: 50%; /* Centraliza horizontalmente */
-    transform: translate(-50%, -900%); /* Ajusta a posição exata */
-
+    transform: translate(-50%, -699%); /* Ajusta a posição exata */
 }
 
 p {
@@ -32,13 +31,13 @@ p {
 } 
 
 @keyframes typing {
-    from{
+    from {
         width: 0;
     }
 }
 
 @keyframes blinking {
-    50%{
+    50% {
         border-color: transparent;
     }
 }
@@ -46,4 +45,21 @@ p {
 p::before, p::after {
     content: "💙"; /* Ícone de coração azul */
     margin: 0 5px;
+}
+
+/* Responsividade */
+@media screen and (max-width: 768px) {
+    p {
+        font-size: 1.5rem; /* Reduz tamanho da fonte */
+        transform: translate(-50%, -350%); /* Ajuste para centralizar melhor */
+        width: 80%; /* Garante que o texto se encaixe bem */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    p {
+        font-size: 1.2rem; /* Reduz mais o tamanho do texto */
+        transform: translate(-50%, -250%); /* Ajuste fino para telas pequenas */
+        width: 90%; /* Expande a largura para não quebrar palavras */
+    }
 }
