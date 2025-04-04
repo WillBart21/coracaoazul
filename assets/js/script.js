@@ -33,12 +33,14 @@ var init = function () {
     var ctx = canvas.getContext('2d');
 
     // Função para ajustar o tamanho do canvas à tela
-    function resizeCanvas() {
-        var mobile = window.innerWidth <= 768;
-        var koef = mobile ? 1 : 1; // Se for celular, usa um fator de escala menor
-        canvas.width = koef * window.innerWidth;
-        canvas.height = koef * window.innerHeight;
-    }
+function resizeCanvas() {
+    const dpr = window.devicePixelRatio || 1; // Detecta densidade da tela
+    canvas.width = window.innerWidth * dpr;
+    canvas.height = window.innerHeight * dpr;
+    canvas.style.width = window.innerWidth + 'px';
+    canvas.style.height = window.innerHeight + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0); // Corrige escala do desenho
+}
 
     window.addEventListener('resize', resizeCanvas);
     resizeCanvas(); // Chama no carregamento
