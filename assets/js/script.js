@@ -34,13 +34,21 @@ var init = function () {
 
     // Função para ajustar o tamanho do canvas à tela
 function resizeCanvas() {
-    const dpr = window.devicePixelRatio || 1; // Detecta densidade da tela
+    const dpr = window.devicePixelRatio || 1;
+
+    // Ajusta o tamanho do canvas para alta resolução
     canvas.width = window.innerWidth * dpr;
     canvas.height = window.innerHeight * dpr;
+
+    // Mantém o tamanho visual correto na tela
     canvas.style.width = window.innerWidth + 'px';
     canvas.style.height = window.innerHeight + 'px';
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0); // Corrige escala do desenho
+
+    // Corrige o sistema de coordenadas do canvas
+    ctx.setTransform(1, 0, 0, 1, 0, 0); // Zera transformações anteriores
+    ctx.scale(dpr, dpr); // Aplica escala com base na densidade de pixels
 }
+
 
     window.addEventListener('resize', resizeCanvas);
     resizeCanvas(); // Chama no carregamento
