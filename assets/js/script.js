@@ -35,7 +35,7 @@ var init = function () {
     // Função para ajustar o tamanho do canvas à tela
     function resizeCanvas() {
         var mobile = window.innerWidth <= 768;
-        var koef = mobile ? 0.5 : 1; // Se for celular, usa um fator de escala menor
+        var koef = mobile ? 0.8 : 1; // Se for celular, usa um fator de escala menor
         canvas.width = koef * window.innerWidth;
         canvas.height = koef * window.innerHeight;
     }
